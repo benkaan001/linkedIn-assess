@@ -1,0 +1,68 @@
+.App {
+  height: 100vh;
+  display: flex;
+  background-color: wheat;
+}
+
+.main {
+  width: 75%;
+  background: url('./assets/matrix.jpg') center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+.top {
+  height: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.timer {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 5px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  font-weight: 700;
+}
+.bottom {
+  height: 50%;
+}
+
+.pyramid {
+  width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prizeList {
+  list-style: none;
+  width: 100%;
+  padding: 20px;
+}
+
+.prizeListItem {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+.prizeListItem.active {
+  background-color: teal;
+}
+
+.prizeListItemNumber {
+  font-size: 18px;
+  font-weight: 100;
+  width: 25%;
+}
+
+.prizeListItemAmount {
+  font-size: 20px;
+  font-weight: 300;
+}
