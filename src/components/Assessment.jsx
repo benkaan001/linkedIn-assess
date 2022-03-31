@@ -4,7 +4,6 @@ import useSound from 'use-sound';
 import play from '../assets/play.mp3';
 import correct from '../assets/correct.mp3';
 import wrong from '../assets/wrong.mp3';
-import wait from '../assets/wait.mp3';
 
 const Assessment = ({
   data,
@@ -19,9 +18,9 @@ const Assessment = ({
   const [correctAnswer] = useSound(correct);
   const [wrongAnswer] = useSound(wrong);
 
-  useEffect(() => {
-    letTheGameBegin();
-  }, [letTheGameBegin]);
+  // useEffect(() => {
+  //   letTheGameBegin();
+  // }, [letTheGameBegin]);
 
   useEffect(() => {
     setQuestion(data[questionNumber - 1]);

@@ -3,8 +3,10 @@ import './app.css';
 import Assessment from './components/Assessment';
 import Timer from './components/Timer';
 import data from './data';
+import StartAssess from './components/StartAssess';
 
 function App() {
+  const [userName, setUserName] = useState(null);
   const [questionNumber, setQuestionNumber] = useState(1);
   const [timeOver, setTimeOver] = useState(false);
   const [winning, setWinning] = useState('nothing');
@@ -40,48 +42,54 @@ function App() {
 
   return (
     <div className='App'>
-      <div className='main'>
-        {timeOver ? (
-          <h1 className='endText'> You've won: {winning}</h1>
-        ) : (
-          <>
-            <div className='top'>
-              <div className='timer'>
-                <Timer
-                  setTimeOver={setTimeOver}
-                  questionNumber={questionNumber}
-                />
-              </div>
-            </div>
-            <div className='bottom'>
-              <Assessment
-                data={data}
-                setTimeOver={setTimeOver}
-                questionNumber={questionNumber}
-                setQuestionNumber={setQuestionNumber}
-              />
-            </div>
-          </>
-        )}
-      </div>
+      {userName ? (
+        <>
+          <div className='main'>
+            {timeOver ? (
+              <h1 className='endText'> You've won: {winning}</h1>
+            ) : (
+              <>
+                <div className='top'>
+                  <div className='timer'>
+                    <Timer
+                      setTimeOver={setTimeOver}
+                      questionNumber={questionNumber}
+                    />
+                  </div>
+                </div>
+                <div className='bottom'>
+                  <Assessment
+                    data={data}
+                    setTimeOver={setTimeOver}
+                    questionNumber={questionNumber}
+                    setQuestionNumber={setQuestionNumber}
+                  />
+                </div>
+              </>
+            )}
+          </div>
 
-      <div className='pyramid'>
-        <ul className='prizeList'>
-          {prizePyramid.map((prize) => (
-            <li
-              className={
-                questionNumber === prize.id
-                  ? 'prizeListItem active'
-                  : 'prizeListItem'
-              }
-              key={prize.id}
-            >
-              <span className='prizeListItemNumber'> {prize.id} </span>
-              <span className='prizeListItemAmount'> {prize.amount}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
+          <div className='pyramid'>
+            <ul className='prizeList'>
+              {prizePyramid.map((prize) => (
+                <li
+                  className={
+                    questionNumber === prize.id
+                      ? 'prizeListItem active'
+                      : 'prizeListItem'
+                  }
+                  key={prize.id}
+                >
+                  <span className='prizeListItemNumber'> {prize.id} </span>
+                  <span className='prizeListItemAmount'> {prize.amount}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </>
+      ) : (
+        <StartAssess setUserName={setUserName} />
+      )}
     </div>
   );
 }

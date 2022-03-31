@@ -1,0 +1,46 @@
+.startWrapper {
+  width: 100%;
+  background: url('../assets/matrix.jpg') center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.start {
+  width: 250px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+  /* position: relative;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+}
+
+.input {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 18px;
+}
+
+/* remove the outline when focus is on */
+
+.input:focus {
+  outline: none;
+}
+.btn {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  cursor: pointer;
+  font-weight: 500;
+}
