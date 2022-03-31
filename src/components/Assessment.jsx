@@ -31,6 +31,7 @@ const Assessment = ({
     delay(6000, () => {
       if (answer.correct) {
         setQuestionNumber((prev) => prev + 1);
+        setSelectedAnswer(null);
       } else {
         setTimeOver(true);
       }
