@@ -1,14 +1,36 @@
+import { useEffect, useState } from 'react';
 import '../components/Assessment.css';
 
-const Assessment = () => {
+const Assessment = ({
+  data,
+  setTimeOut,
+  questionNumber,
+  setQuestionNumber,
+}) => {
+  const [question, setQuestion] = useState(null);
+  const [selectedAnswer, setSelectedAnswer] = useState(null);
+  const [className, setClassName] = useState('answer');
+
+  useEffect(() => {
+    setQuestion(data[questionNumber - 1]);
+  }, [data, questionNumber]);
+
+  const handleClick = (answer) => {
+    setSelectedAnswer(answer);
+    setClassName('answer active');
+  };
   return (
     <div className='assessment'>
-      <div className='question'>Why do you want to be a JS developer?</div>
+      <div className='question'>{question?.question}</div>
       <div className='answers'>
-        <div className='answer active'>good question</div>
-        <div className='answer correct'>good question</div>
-        <div className='answer wrong'>good question</div>
-        <div className='answer'>good question</div>
+        {question?.answers.map((answer) => (
+          <div
+            className={setSelectedAnswer === answer ? className : 'answer'}
+            onClick={() => handleClick(answer)}
+          >
+            {answer.text}
+          </div>
+        ))}
       </div>
     </div>
   );

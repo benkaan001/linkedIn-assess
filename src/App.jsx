@@ -33,6 +33,7 @@ function App() {
           <Assessment
             data={data}
             setTimeOut={setTimeOut}
+            questionNumber={questionNumber}
             setQuestionNumber={setQuestionNumber}
           />
         </div>
@@ -42,7 +43,7 @@ function App() {
           {prizePyramid.map((prize) => (
             <li
               className={
-                questionNumber == prize.id
+                questionNumber === prize.id
                   ? 'prizeListItem active'
                   : 'prizeListItem'
               }
