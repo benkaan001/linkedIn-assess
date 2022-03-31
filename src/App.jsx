@@ -73,12 +73,12 @@ function App() {
             <ul className='prizeList'>
               {prizePyramid.map((prize) => (
                 <li
+                  key={prize.id}
                   className={
                     questionNumber === prize.id
                       ? 'prizeListItem active'
                       : 'prizeListItem'
                   }
-                  key={prize.id}
                 >
                   <span className='prizeListItemNumber'> {prize.id} </span>
                   <span className='prizeListItemAmount'> {prize.amount}</span>

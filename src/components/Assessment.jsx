@@ -57,8 +57,9 @@ const Assessment = ({
     <div className='assessment'>
       <div className='question'>{question?.question}</div>
       <div className='answers'>
-        {question?.answers.map((answer) => (
+        {question?.answers.map((answer, i) => (
           <div
+            key={i}
             className={selectedAnswer === answer ? className : 'answer'}
             onClick={() => handleClick(answer)}
           >
