@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import './app.css';
 import Assessment from './components/Assessment';
+import data from './data';
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
+  const [timeOut, setTimeOut] = useState(false);
   const prizePyramid = [
     { id: 1, amount: '$100' },
     { id: 2, amount: '$200' },
@@ -28,7 +30,11 @@ function App() {
           <div className='timer'>120</div>
         </div>
         <div className='bottom'>
-          <Assessment />
+          <Assessment
+            data={data}
+            setTimeOut={setTimeOut}
+            setQuestionNumber={setQuestionNumber}
+          />
         </div>
       </div>
       <div className='pyramid'>
