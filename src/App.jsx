@@ -5,7 +5,7 @@ import data from './data';
 
 function App() {
   const [questionNumber, setQuestionNumber] = useState(1);
-  const [timeOut, setTimeOut] = useState(false);
+  const [timeOver, setTimeOver] = useState(false);
   const prizePyramid = [
     { id: 1, amount: '$100' },
     { id: 2, amount: '$200' },
@@ -32,7 +32,7 @@ function App() {
         <div className='bottom'>
           <Assessment
             data={data}
-            setTimeOut={setTimeOut}
+            setTimeOver={setTimeOver}
             questionNumber={questionNumber}
             setQuestionNumber={setQuestionNumber}
           />

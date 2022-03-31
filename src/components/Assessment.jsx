@@ -1,9 +1,10 @@
+import { getSuggestedQuery } from '@testing-library/react';
 import { useEffect, useState } from 'react';
 import '../components/Assessment.css';
 
 const Assessment = ({
   data,
-  setTimeOut,
+  setTimeOver,
   questionNumber,
   setQuestionNumber,
 }) => {
@@ -15,9 +16,25 @@ const Assessment = ({
     setQuestion(data[questionNumber - 1]);
   }, [data, questionNumber]);
 
+  const delay = (duration, callback) => {
+    setTimeout(() => {
+      callback();
+    }, duration);
+  };
+
   const handleClick = (answer) => {
     setSelectedAnswer(answer);
     setClassName('answer active');
+    delay(3000, () =>
+      setClassName(answer.correct ? 'answer correct' : 'answer wrong')
+    );
+    delay(6000, () => {
+      if (answer.correct) {
+        setQuestionNumber((prev) => prev + 1);
+      } else {
+        setTimeOver(true);
+      }
+    });
   };
   return (
     <div className='assessment'>
@@ -25,7 +42,7 @@ const Assessment = ({
       <div className='answers'>
         {question?.answers.map((answer) => (
           <div
-            className={setSelectedAnswer === answer ? className : 'answer'}
+            className={selectedAnswer === answer ? className : 'answer'}
             onClick={() => handleClick(answer)}
           >
             {answer.text}
