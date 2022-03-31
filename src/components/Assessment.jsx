@@ -1,6 +1,10 @@
-import { getSuggestedQuery } from '@testing-library/react';
 import { useEffect, useState } from 'react';
 import '../components/Assessment.css';
+import useSound from 'use-sound';
+import play from '../assets/play.mp3';
+import correct from '../assets/correct.mp3';
+import wrong from '../assets/wrong.mp3';
+import wait from '../assets/wait.mp3';
 
 const Assessment = ({
   data,
@@ -11,6 +15,13 @@ const Assessment = ({
   const [question, setQuestion] = useState(null);
   const [selectedAnswer, setSelectedAnswer] = useState(null);
   const [className, setClassName] = useState('answer');
+  const [letTheGameBegin] = useSound(play);
+  const [correctAnswer] = useSound(correct);
+  const [wrongAnswer] = useSound(wrong);
+
+  useEffect(() => {
+    letTheGameBegin();
+  }, [letTheGameBegin]);
 
   useEffect(() => {
     setQuestion(data[questionNumber - 1]);
@@ -28,12 +39,18 @@ const Assessment = ({
     delay(3000, () =>
       setClassName(answer.correct ? 'answer correct' : 'answer wrong')
     );
-    delay(6000, () => {
+    delay(5000, () => {
       if (answer.correct) {
-        setQuestionNumber((prev) => prev + 1);
-        setSelectedAnswer(null);
+        correctAnswer();
+        delay(8000, () => {
+          setQuestionNumber((prev) => prev + 1);
+          setSelectedAnswer(null);
+        });
       } else {
-        setTimeOver(true);
+        wrongAnswer();
+        delay(1000, () => {
+          setTimeOver(true);
+        });
       }
     });
   };
