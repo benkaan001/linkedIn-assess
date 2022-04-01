@@ -25,7 +25,7 @@
 
 ## Tests
 
-![demo gif](https://github.com/benkaan001/linkedin-assess/blob/main/assets/app.gif)
+![demo gif](https://github.com/benkaan001/linkedin-assess/blob/main/src/assets/app.gif)
 
 ## Contributing
 
