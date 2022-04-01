@@ -17,7 +17,7 @@
 
 ## Description
 
-- Simple React front-end quiz application.
+- Simple React front-end quiz application inspired by the LinkedIn's JavaScript skill quiz questions.
 
 ## Installation
 
