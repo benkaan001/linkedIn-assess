@@ -18,7 +18,6 @@ const StartAssess = ({ setUserName }) => {
 
   return (
     <div className='startWrapper'>
-      {/* <div className='header'>Are you ready?</div> */}
       <div className='start'>
         <input placeholder='enter your name' className='input' ref={inputRef} />
         <button className='btn' onClick={handleClick}>

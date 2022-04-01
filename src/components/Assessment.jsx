@@ -18,12 +18,13 @@ const Assessment = ({
   const [correctAnswer] = useSound(correct);
   const [wrongAnswer] = useSound(wrong);
 
-  // useEffect(() => {
-  //   letTheGameBegin();
-  // }, [letTheGameBegin]);
+  useEffect(() => {
+    letTheGameBegin();
+  }, [letTheGameBegin]);
 
   useEffect(() => {
     setQuestion(data[questionNumber - 1]);
+    questionNumber == 15 && setQuestion(null);
   }, [data, questionNumber]);
 
   const delay = (duration, callback) => {
@@ -61,7 +62,7 @@ const Assessment = ({
           <div
             key={i}
             className={selectedAnswer === answer ? className : 'answer'}
-            onClick={() => handleClick(answer)}
+            onClick={() => !selectedAnswer && handleClick(answer)}
           >
             {answer.text}
           </div>

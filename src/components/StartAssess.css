@@ -1,8 +1,10 @@
 .startWrapper {
   width: 100%;
-  background: url('../assets/matrix.jpg') center;
+  background: url('../assets/matrix.gif');
   color: white;
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
 }
 
@@ -14,6 +16,7 @@
   align-items: center;
   justify-content: space-around;
   margin: auto;
+
   /* position: relative;
   top: 0;
   bottom: 0;

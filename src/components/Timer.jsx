@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
+import './Timer.css';
 
 const Timer = ({ setTimeOver, questionNumber }) => {
-  const [timer, setTimer] = useState(120);
+  const [timer, setTimer] = useState(126);
 
   useEffect(() => {
     if (timer === 0) return setTimeOver(true);
@@ -12,10 +13,10 @@ const Timer = ({ setTimeOver, questionNumber }) => {
   }, [setTimeOver, timer]);
 
   useEffect(() => {
-    setTimer(120);
+    setTimer(126);
   }, [questionNumber]);
 
-  return timer;
+  return <div className='timer'>{timer}</div>;
 };
 
 export default Timer;
