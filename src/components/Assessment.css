@@ -114,3 +114,30 @@
   border: 5px solid #ffffff;
   font-weight: bold;
 }
+
+@media only screen and (max-width: 844px) {
+  .winner {
+    width: 60%;
+    height: 25%;
+    font-size: 40px;
+  }
+  .question {
+    width: 90%;
+  }
+  .answer {
+    width: 100%;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  .winner {
+    width: 60%;
+    height: 25%;
+    font-size: 40px;
+  }
+  .question {
+    width: 90%;
+  }
+  .answer {
+    width: 90%;
+  }
+}

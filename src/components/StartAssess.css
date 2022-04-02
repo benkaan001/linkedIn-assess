@@ -1,6 +1,10 @@
 .startWrapper {
   width: 100%;
   background: url('../assets/matrix.gif');
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed;
+  background-repeat: no-repeat; */
   color: white;
   display: flex;
   justify-content: center;
@@ -40,4 +44,39 @@
   font-size: 18px;
   cursor: pointer;
   font-weight: 500;
+}
+
+@media only screen and (max-width: 844px) {
+  .startWrapper {
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  .start {
+    height: 40vh;
+    justify-content: end;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .input {
+    margin-bottom: 10px;
+  }
+}
+@media only screen and (max-width: 1366px) {
+  .startWrapper {
+    width: 100%;
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 100vh;
+  }
+  .start {
+    height: 40vh;
+    justify-content: end;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .input {
+    margin-bottom: 10px;
+  }
 }
