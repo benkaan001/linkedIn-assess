@@ -7,15 +7,9 @@
 .App {
   height: 100vh;
   display: flex;
-  background-color: rgb(22, 20, 20);
+  background: linear-gradient(#201e27, black);
   color: white;
 }
-/* #root {
-  display: flex;
-  flex-grow: 1;
-  justify-content: center;
-  align-items: center;
-} */
 
 .main {
   width: 75%;
