@@ -23,9 +23,11 @@ const Assessment = ({
   }, [letTheGameBegin]);
 
   useEffect(() => {
+    if (questionNumber - 1 === data.length) {
+      setTimeOver(true);
+    }
     setQuestion(data[questionNumber - 1]);
-    questionNumber == 15 && setQuestion(null);
-  }, [data, questionNumber]);
+  }, [data, questionNumber, setTimeOver]);
 
   const delay = (duration, callback) => {
     setTimeout(() => {
